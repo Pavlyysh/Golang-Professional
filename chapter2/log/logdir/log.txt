@@ -1,0 +1,6 @@
+customLogLineNumber 2025/05/20 14:19:51 Hello there!
+customLogLineNumber 2025/05/20 14:19:51 Another log entry!
+customLogLineNumber 2025/05/20 14:24:55 Hello there!
+customLogLineNumber 2025/05/20 14:24:55 Another log entry!
+customLogLineNumber 2025/05/20 14:34:38 logFiles.go:22: Hello there!
+customLogLineNumber 2025/05/20 14:34:38 logFiles.go:23: Another log entry!

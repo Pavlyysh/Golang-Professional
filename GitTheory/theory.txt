@@ -1,0 +1,158 @@
+    git clone -- Для того чтобы перенести существующий репозиторий GitHub на локальный
+компьютер, нужно использовать команду git clone, в которой указать URL-адрес
+репозитория:
+$ git clone git@github.com:mactsouk/go-kafka.git
+
+    git status -- Команда git status показывает состояние рабочего дерева.
+
+    git pull -- Команда git pull используется для получения обновлений из удаленного репо-
+зитория.
+
+    git commit -- Команда git commit предназначена для записи изменений в репозиторий. После
+выполнения команды git commit обычно нужно выполнить git push, чтобы пере-
+дать изменения в удаленный репозиторий.
+
+    git push -- Чтобы перенести локальные изменения в репозиторий GitHub, нужно выполнить
+команду git push.
+
+    git diff -- Команда git diff показывает различия между зафиксированными изменениями
+и рабочим репозиторием, веткой и т. п.
+
+
+
+РАБОТА С ВЕТКАМИ
+
+    Ветка — это способ управления рабочим процессом, позволяющий отделить изме-
+нения от основной ветки. В каждом репозитории есть главная ветка, используемая
+по умолчанию, — обычно она называется master — и, возможно, несколько других
+веток.
+
+    Чтобы создать на локальном компьютере новую ветку с именем new_branch
+и перейти к ней, нужно использовать следующую команду:
+$ git checkout -b new_branch
+Switched to a new branch 'new_branch'
+
+    Если вы хотите подключить эту ветку к GitHub, следует выполнить такую
+команду:
+$ git push --set-upstream origin new_branch
+
+    Если вы хотите перейти с текущей ветки на основную ветку, то нужно выпол-
+нить следующую команду:
+$ git checkout master
+
+    Для того чтобы удалить локальную ветку — в данном случае new_branch, — нуж-
+но выполнить команду git branch -D:
+$ git --no-pager branch -a
+* master
+new_branch
+remotes/origin/HEAD -> origin/master
+remotes/origin/master
+remotes/origin/new_branch
+$ git branch -D new_branch
+Deleted branch new_branch (was 98f8a77).
+$ git --no-pager branch -a
+* master
+remotes/origin/HEAD -> origin/master
+remotes/origin/master
+remotes/origin/new_branch
+
+
+РАБОТА С ФАЙЛАМИ
+
+    Когда вы создаете в репозитории или удаляете оттуда один или несколько файлов,
+необходимо сообщить git(1) об этом. Для того чтобы удалить файл a_file.go,
+нужно сделать следующее:
+$ rm a_file.go
+$ git rm a_file.go
+rm 'ch07/a_file.go'
+
+    Если после этого выполнить git status, то получим такой результат:
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+Changes to be committed:
+(use "git reset HEAD <file>..." to unstage)
+deleted:
+a_file.go
+
+    Чтобы изменения вступили в силу, нужно сначала выполнить git commit, а затем git push:
+$ git commit -a -m "Deleting a_file.go"
+[master 1b06700] Deleting a_file.go
+1 file changed, 0 insertions(+), 0 deletions(-)
+delete mode 100644 ch07/a_file.go
+$ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 296 bytes | 296.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To github.com:PacktPublishing/Mastering-Go-Second-Edition.git
+782c4da..1b06700 master -> master
+
+
+
+РАБОТА С ТЕГАМИ
+
+    Тег — это способ пометить определенную версию кода. Тег можно представить как
+ветку, которая никогда не меняется.
+
+    Чтобы создать легкий тег, нужно выполнить такую команду:
+$ git tag c7.0
+
+    Чтобы получить информацию о конкретном теге, нужно сделать следующее:
+$ git --no-pager show v1.0.0
+commit f415872e62bd71a004b680d50fa089c139359533 (tag: v1.0.0)
+Author: Mihalis Tsoukalos <mihalistsoukalos@gmail.com>
+Date:
+Sat Mar 2 20:33:58 2019 +0200
+Initial version 1.0.0
+diff --git a/go.mod b/go.mod
+new file mode 100644
+index 0000000..c4928c5
+--- /dev/null
++++ b/go.mod
+@@ -0,0 +1,3 @@
++module github.com/mactsouk/myModule
++
++go 1.12
+diff --git a/myModule.go b/myModule.go
+index e69de29..fa6b0fe 100644
+--- a/myModule.go
++++ b/myModule.go
+@@ -0,0 +1,9 @@
++package myModule
++
++import (
++
+"fmt"
++)
++
++func Version() {
++
+fmt.Println("Version 1.0.0")
++}
+
+    Чтобы получить список всех доступных тегов, можно воспользоваться коман-
+дой git tag:
+$ git --no-pager tag
+c7.0
+    
+    Чтобы внести тег в GitHub, нужно сделать следующее:
+$ git push origin c7.0
+Total 0 (delta 0), reused 0 (delta 0)
+To github.com:PacktPublishing/Mastering-Go-Second-Edition.git
+* [new tag]
+c7.0 -> c7.0
+
+    Чтобы удалить существующий тег с локального компьютера, нужно выполнить
+следующую команду:
+$ git tag -d c7.0
+Deleted tag 'c7.0' (was 1b06700)
+
+    Можно также удалить тег с сервера GitHub:
+$ git push origin :refs/tags/c7.0
+To github.com:PacktPublishing/Mastering-Go-Second-Edition.git
+- [deleted]
+c7.0
