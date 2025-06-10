@@ -171,11 +171,11 @@ func save() error {
 func load() error {
 	fmt.Println("Loading", DATAFILE)
 	loadFrom, err := os.Open(DATAFILE)
-	defer loadFrom.Close()
 	if err != nil {
 		fmt.Println("Empty key/value store")
 		return err
 	}
+	defer loadFrom.Close()
 
 	decoder := gob.NewDecoder(loadFrom)
 	decoder.Decode(&DATA)
