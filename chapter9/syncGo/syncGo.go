@@ -18,7 +18,6 @@ func main() {
 	fmt.Printf("Going to create %d goroutines\n", count)
 
 	var wg sync.WaitGroup
-	fmt.Printf("%#v\n", wg)
 
 	for i := 0; i < count; i++ {
 		wg.Add(1)
@@ -28,7 +27,6 @@ func main() {
 		}(i)
 	}
 
-	fmt.Printf("%#v\n", wg)
 	wg.Wait()
 	fmt.Println("\nExiting...")
 }
