@@ -1,0 +1,429 @@
+positions: instr line
+events: cpu(ms)
+
+ob=(1) /tmp/go-build2921311025/b001/exe/profileMe
+fl=(1) /home/pgazukin/FromUSB/GolangForProfessional/chapter11/profileMe/profileMe.go
+fn=(1) main.N2
+0x4c47b6 112 1100
+
+ob=(1)
+fl=(1)
+fn=(2) main.N1
++59 103 510
+
+ob=(1)
+fl=(2) /usr/local/go/src/runtime/memclr_amd64.s
+fn=(3) runtime.memclrNoHeapPointers
+-338040 127 130
+
+ob=(1)
+fl=(1)
+fn=(1)
++337954 111 50
++24 112 50
+
+ob=(1)
+fl=(1)
+fn=(2)
++18 102 40
++39 103 40
+
+ob=(1)
+fl=(3) /usr/local/go/src/internal/runtime/syscall/asm_linux_amd64.s
+fn=(4) internal/runtime/syscall.Syscall6
+-770590 36 30
+
+ob=(1)
+fl=(4) /usr/local/go/src/runtime/sys_linux_amd64.s
+fn=(5) runtime.futex
++437109 558 30
+
+ob=(1)
+fl=(5) /usr/local/go/src/runtime/mheap.go
+fn=(6) runtime.(*mspan).base
+-334311 499 10
+
+ob=(1)
+fl=(6) /usr/local/go/src/runtime/proc.go
+fn=(7) runtime.releasepNoTrace
++156708 5940 10
+
+ob=(1)
+fl=(1)
+fn=(1)
++511025 112 10
+
+ob=(1)
+fl=(1)
+fn=(2)
++38 102 10
++9 102 10
+
+ob=(1)
+fl=(7) /usr/local/go/src/internal/runtime/syscall/syscall_linux.go
+fn=(8) internal/runtime/syscall.EpollWait
+-770684 32 0
+cfl=(3)
+cfn=(4)
+calls=0 -770578 36
+* * 30
+
+ob=(1)
+fl=(8) /usr/local/go/src/runtime/lock_futex.go
+fn=(9) runtime.notewakeup
++35616 32 0
+cfl=(9) /usr/local/go/src/runtime/os_linux.go
+cfn=(10) runtime.futexwakeup
+calls=0 +183979 88
+* * 20
+
+ob=(1)
+fl=(8)
+fn=(11) runtime.notesleep
++258 47 0
+cfl=(9)
+cfn=(12) runtime.futexsleep
+calls=0 +148171 75
+* * 10
+
+ob=(1)
+fl=(10) /usr/local/go/src/runtime/malloc.go
+fn=(13) runtime.mallocgcLarge
++10580 1600 0
+cfl=(10)
+cfn=(14) runtime.memclrNoHeapPointersChunked
+calls=0 +11486 1706
+* * 130
+
+ob=(1)
+fl=(10)
+fn=(14)
++906 1706 0
+cfl=(2)
+cfn=(3)
+calls=0 +386207 127
+* * 130
+
+ob=(1)
+fl=(11) /usr/local/go/src/runtime/mgc.go
+fn=(15) runtime.gcBgMarkWorker
++36578 1483 0
+cfl=(12) /usr/local/go/src/runtime/asm_amd64.s
+cfn=(16) runtime.systemstack
+calls=0 +374405 514
+* * 10
+
+ob=(1)
+fl=(11)
+fn=(17) runtime.gcBgMarkWorker.func2
++851 1500 0
+cfl=(13) /usr/local/go/src/runtime/mgcmark.go
+cfn=(18) runtime.gcDrainMarkWorkerDedicated
+calls=0 +851 1110
+* * 10
+
+ob=(1)
+fl=(13)
+fn=(18)
+* 1110 0
+cfl=(13)
+cfn=(19) runtime.gcDrain
+calls=0 +15034 1228
+* * 10
+
+ob=(1)
+fl=(13)
+fn=(19)
++15034 1228 0
+cfl=(13)
+cfn=(20) runtime.scanobject
+calls=0 +16916 1463
+* * 10
+
+ob=(1)
+fl=(13)
+fn=(20)
++1882 1463 0
+cfl=(13)
+cfn=(21) runtime.greyobject
+calls=0 +3081 1613
+* * 10
+
+ob=(1)
+fl=(13)
+fn=(21)
++1199 1613 0
+cfl=(5)
+cfn=(6)
+calls=0 +1199 499
+* * 10
+
+ob=(1)
+fl=(14) /usr/local/go/src/runtime/netpoll_epoll.go
+fn=(22) runtime.netpoll
++80085 119 0
+cfl=(7)
+cfn=(8)
+calls=0 -102904 32
+* * 30
+
+ob=(1)
+fl=(9)
+fn=(12)
++798 75 0
+cfl=(4)
+cfn=(5)
+calls=0 +254226 558
+* * 10
+
+ob=(1)
+fl=(9)
+fn=(10)
++192 88 0
+cfl=(4)
+cfn=(5)
+calls=0 +253428 558
+* * 20
+
+ob=(1)
+fl=(6)
+fn=(23) runtime.main
++25147 283 0
+cfl=(1)
+cfn=(24) main.main
+calls=0 +586663 32
+* * 1100
+cfl=(1)
+cfn=(24)
+calls=0 +586722 23
+* * 510
+cfl=(1)
+cfn=(24)
+calls=0 +586405 61
+* * 130
+cfl=(1)
+cfn=(24)
+calls=0 +586636 32
+* * 50
+cfl=(1)
+cfn=(24)
+calls=0 +586660 32
+* * 50
+cfl=(1)
+cfn=(24)
+calls=0 +586678 23
+* * 40
+cfl=(1)
+cfn=(24)
+calls=0 +586717 23
+* * 40
+cfl=(1)
+cfn=(24)
+calls=0 +586658 32
+* * 10
+cfl=(1)
+cfn=(24)
+calls=0 +586696 23
+* * 10
+cfl=(1)
+cfn=(24)
+calls=0 +586705 23
+* * 10
+
+ob=(1)
+fl=(6)
+fn=(25) runtime.mPark
++19969 1887 0
+cfl=(8)
+cfn=(11)
+calls=0 -173252 47
+* * 10
+
+ob=(1)
+fl=(6)
+fn=(26) runtime.stopm
+* 2910 0
+cfl=(6)
+cfn=(25)
+calls=0 * 1887
+* * 10
+
+ob=(1)
+fl=(6)
+fn=(27) runtime.startm
++701 3023 0
+cfl=(8)
+cfn=(9)
+calls=0 -193479 32
+* * 20
+
+ob=(1)
+fl=(6)
+fn=(28) runtime.findRunnable
++4316 3473 0
+cfl=(6)
+cfn=(29) runtime.releasep
+calls=0 +29780 5936
+* * 10
++608 3605 0
+cfl=(14)
+cfn=(22)
+calls=0 -51123 119
+* * 30
++1239 3647 0
+cfl=(6)
+cfn=(26)
+calls=0 -5625 2910
+* * 10
+
+ob=(1)
+fl=(6)
+fn=(30) runtime.resetspinning
++3266 3885 0
+cfl=(6)
+cfn=(31) runtime.wakep
+calls=0 +166992 3145
+* * 20
+
+ob=(1)
+fl=(6)
+fn=(32) runtime.schedule
++1075 4020 0
+cfl=(6)
+cfn=(28)
+calls=0 -4505 3605
+* * 30
+cfl=(6)
+cfn=(28)
+calls=0 -5113 3473
+* * 10
+cfl=(6)
+cfn=(28)
+calls=0 -3266 3647
+* * 10
++94 4038 0
+cfl=(6)
+cfn=(30)
+calls=0 -1075 3885
+* * 20
+
+ob=(1)
+fl=(6)
+fn=(33) runtime.park_m
++1110 4144 0
+cfl=(6)
+cfn=(32)
+calls=0 -94 4020
+* * 50
+cfl=(6)
+cfn=(32)
+calls=0 * 4038
+* * 20
+
+ob=(1)
+fl=(6)
+fn=(29)
++18072 5936 0
+cfl=(6)
+cfn=(7)
+calls=0 +18108 5940
+* * 10
+
+ob=(1)
+fl=(10)
+fn=(34) runtime.mallocgc
++137352 1063 0
+cfl=(10)
+cfn=(13)
+calls=0 -213122 1600
+* * 130
+
+ob=(1)
+fl=(6)
+fn=(31)
++6023 3145 0
+cfl=(6)
+cfn=(27)
+calls=0 -167132 3023
+* * 20
+
+ob=(1)
+fl=(15) /usr/local/go/src/runtime/slice.go
+fn=(35) runtime.makeslice
++5053 116 0
+cfl=(10)
+cfn=(34)
+calls=0 -6023 1063
+* * 130
+
+ob=(1)
+fl=(12)
+fn=(36) runtime.mcall
++13637 459 0
+cfl=(6)
+cfn=(33)
+calls=0 -166500 4144
+* * 70
+
+ob=(1)
+fl=(12)
+fn=(16)
++124 514 0
+cfl=(11)
+cfn=(17)
+calls=0 -336852 1500
+* * 10
+
+ob=(1)
+fl=(1)
+fn=(24)
++348619 61 0
+cfl=(15)
+cfn=(35)
+calls=0 -13761 116
+* * 130
++231 32 0
+cfl=(1)
+cfn=(1)
+calls=0 +231 111
+* * 50
++22 32 0
+cfl=(1)
+cfn=(1)
+calls=0 +22 112
+* * 10
++2 32 0
+cfl=(1)
+cfn=(1)
+calls=0 +2 112
+* * 50
++3 32 0
+cfl=(1)
+cfn=(1)
+calls=0 +3 112
+* * 1100
++15 23 0
+cfl=(1)
+cfn=(2)
+calls=0 +15 102
+* * 40
++18 23 0
+cfl=(1)
+cfn=(2)
+calls=0 +18 102
+* * 10
++9 23 0
+cfl=(1)
+cfn=(2)
+calls=0 +9 102
+* * 10
++12 23 0
+cfl=(1)
+cfn=(2)
+calls=0 +12 103
+* * 40
++5 23 0
+cfl=(1)
+cfn=(2)
+calls=0 +5 103
+* * 510
